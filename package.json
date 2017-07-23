@@ -1,0 +1,27 @@
+{
+  "name": "ExpressLogin",
+  "version": "1.0.0",
+  "author":"Nacho Castillo",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --exec 'babel-node' server.js "
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "express-session": "^1.15.4",
+    "mongoose": "^4.11.3",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-preset-es2015": "^6.24.1",
+    "morgan": "^1.8.2",
+    "nodemon": "^1.11.0"
+  }
+}
