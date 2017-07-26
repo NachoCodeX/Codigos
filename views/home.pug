@@ -1,0 +1,9 @@
+extends base
+
+block content
+  include partials/header.pug
+  main.container
+    p MENSAJES : #{message}
+    -if(user)
+      h1.title Welcome #{user.email} !
+      a(href="/logout") Logout
