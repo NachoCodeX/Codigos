@@ -3,7 +3,9 @@ import HomeRoutes from './routes/home';
 import path from 'path';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
+import session from 'express-session';
 import logger from 'morgan';
+import flash from 'connect-flash';
 const app=express();
 
 
@@ -14,11 +16,20 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(cookieParser());
+app.use(flash());
 app.use(express.static(path.join(__dirname,'public')));
-// Òwn Middlewares
+app.use(session({
+  secret:"mysecret",
+  resave:false,
+  saveUninitialized:true,
+}));
+
+// app.use(require('./middlewares/isLoggedIn'));
+const passport=require('./auth/passport')(app);
+// My Middlewares
 
 
-app.use('/',HomeRoutes);
+app.use('/',HomeRoutes(passport));
 
 
 module.exports=app;

@@ -1,14 +1,16 @@
 {
   "name": "ExpressLogin",
   "version": "1.0.0",
-  "author":"Nacho Castillo",
+  "author": "Nacho Castillo",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon --exec 'babel-node' server.js "
   },
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "body-parser": "^1.17.2",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.5.6",
     "express": "^4.15.3",

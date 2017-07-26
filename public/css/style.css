@@ -5,6 +5,25 @@
 }
 
 body{
-  padding: 80px;
   background: #eee;
 }
+
+header{background: steelblue;
+  color: #fff;
+  text-align: center;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container{
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+}
+.login{background:tomato;}
+.home{background: seagreen;}
+.signup{background:steelblue;}
+.header__title{text-transform: uppercase;}
+.title{font-weight: lighter; }
