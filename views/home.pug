@@ -3,7 +3,6 @@ extends base
 block content
   include partials/header.pug
   main.container
-    p MENSAJES : #{message}
     -if(user)
-      h1.title Welcome #{user.email} !
+      h1.title Welcome #{user.first_name} !
       a(href="/logout") Logout

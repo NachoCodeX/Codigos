@@ -24,25 +24,30 @@ module.exports=app=>{
 
   passport.use('signup',new LocalStrategy(localConfig,(req,email,password,done)=>{
 
-      function findOrCreateUser() {
-        User.findOne({'email':email},(err,user)=>{
-          if(err){ console.log("ERROR SIGN UP"+err); return done(err);}
-          if(user){console.log("USER ALREADY EXISTS"); return done(null,false,req.flash('message',"User already exists"))}
-          else{
-            let newUser=new User({
-              email:email,
-              password:password
-            });
-            newUser.save(err=>{
-              console.log("User Registration");
-              return done(null,newUser);
-            });
-          }
-        });
+      // function findOrCreateUser() {
+        if(req.body.password2 === req.body.password){
+          User.findOne({'email':email},(err,user)=>{
+            if(err){return done(err);}
+            if(user){return done(null,false,req.flash('message-signup',"User already exists"))}
+            else{
+              let newUser=new User({
+                email:email,
+                password:password,
+                first_name:req.body.first_name,
+                last_name:req.body.last_name,
+              });
+              newUser.save(err=>{
+                console.log("User Registration");
+                return done(null,newUser);
+              });
+            }
+          });
+      }else{
+        done(null,false,req.flash('message-signup','Password not match'))
+      }
+      // };
 
-      };
-
-    process.nextTick(findOrCreateUser);
+    // process.nextTick(findOrCreateUser);
   })
 );
 
@@ -54,7 +59,6 @@ module.exports=app=>{
       if(err) return done(err)
       if(!user) return done(null,false,req.flash('message-login','No user found'));
       if(!user.validatePassword(password)) return done(null,false,req.flash('message-login','Wrong password'));
-      // console.log(`LOG IN ${user}`);
       return done(null,user,req.flash('message-login','Success'));
 
     });

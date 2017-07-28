@@ -5,7 +5,10 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   email:{type:String,unique:true,lowercase:true},
   password:String,
-  displayName:String
+  first_name:String,
+  last_name:String,
+  dateJoined:{type:Date,default:Date.now},
+  lastLogin:Date
 });
 
 UserSchema.pre('save',function(next){

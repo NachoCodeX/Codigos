@@ -1,2 +1,5 @@
-header(class=""+title)
-  h1.header__title #{title}
+.header
+  -if(user)
+    h1.header__title WELCOME!
+  -else
+    h1.header__title WELCOME

@@ -1,0 +1,17 @@
+.alert{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.5rem;
+  // background: #888888;
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+.alert__exit{cursor: pointer;}
+
+.alert--warning{background-color: orange;}
+.alert--danger{background-color: #e84b3a;}
+.alert--success{background-color:seagreen;}
+.alert--info{background-color: #3199dc;}

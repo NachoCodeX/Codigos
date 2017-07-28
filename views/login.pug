@@ -2,8 +2,14 @@ extends base
 
 block content
   include partials/header.pug
-  main.container
-    form(method='POST')
-      input(type="email" name="email" placeholder="Email")
-      input(type="password" name="password" placeholder="Password")
-      input(type="submit" value="Log In")
+  main.container.container-login
+    .form-container
+      h1.form__title Login
+      form.form.form--login(method='POST')
+        input.form__input.text-center(type="email" name="email" placeholder="Email")
+        input.form__input.text-center(type="password" name="password" placeholder="Password")
+        input.form__submit(type="submit" value="Log in")
+      .form-container__a
+        span.form__span Don't have an account?
+          a.form__a(href="/signup")  Sign up
+        a.form__a(href="#") Forgot password?

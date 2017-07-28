@@ -2,7 +2,24 @@ extends base
 block content
   include partials/header.pug
   main.container
-    form(method='POST')
-      input(type="email" name="email" placeholder="Email")
-      input(type="password" name="password" placeholder="Password")
-      input(type="submit" value="Log In")
+    .alert.alert--warning
+      .alert__text Warning
+      .alert__exit &times;    
+    .alert.alert--danger
+        .alert__text Danger
+        .alert__exit &times;
+    .alert.alert--success
+            .alert__text Success
+            .alert__exit &times;
+    .alert.alert--info
+            .alert__text Information
+            .alert__exit &times;
+    .form-container.form-container-signup
+      h1.form__title Sign up
+      form.form(method='POST')
+        input.form__input.text-center(type="text" name="first_name" placeholder="First name")
+        input.form__input.text-center(type="text" name="last_name" placeholder="Last name")
+        input.form__input.text-center(type="email" name="email" placeholder="Email")
+        input.form__input.text-center(type="password" name="password" placeholder="Password")
+        input.form__input.text-center(type="password" name="password2" placeholder="Confirm password")
+        input.form__submit(type="submit" value="Sign up")
