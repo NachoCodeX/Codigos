@@ -8,6 +8,10 @@
   box-sizing: border-box;
 }
 
+img{
+  display: block;
+}
+
 body{
   background: #eee;
   overflow-x: hidden;
@@ -21,7 +25,7 @@ body{
   background:#3d4761;
   color: #fff;
   text-align: center;
-  height: 5rem;
+  height: 4em;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,10 +1,16 @@
 import HomeController from '../controllers/home';
+import multer from 'multer';
 const router = require('express').Router();
 const isLoggedIn =require('../middlewares/isLoggedIn');
 const isLoggedIn_2 =require('../middlewares/isLoggedIn_back');
+import path from 'path';
 
 
 module.exports = passport => {
+
+  let uploading=multer({
+    dest:path.join(__dirname,'..',"public","uploads")
+  });
 
   router.get('/',isLoggedIn_2,HomeController.getLogin);
 
@@ -27,6 +33,20 @@ module.exports = passport => {
     req.logout();
     res.redirect('/');
   });
+
+  router.post('/picture/upload',uploading.single('image'),HomeController.uploadImage);
+
+
+
+  // AUTH FACEBOOK
+  router.get('/auth/facebook',passport.authenticate('facebook',{scope:'email'}));
+
+  router.get('/auth/facebook/callback',passport.authenticate('facebook',{
+    successRedirect:'/profile',
+    failureRedirect:'/'
+  }));
+
+
 
   return router;
 

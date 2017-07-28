@@ -71,6 +71,9 @@
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__public_css_style_scss__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__public_css_style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__public_css_style_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__public_js_nalerts_js__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__public_js_nalerts_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__public_js_nalerts_js__);
+
 
 
 
@@ -114,7 +117,7 @@ exports = module.exports = __webpack_require__(3)(undefined);
 
 
 // module
-exports.push([module.i, ".form-container, .form__input, .form__submit {\n  border-radius: 3px; }\n\n.form-container {\n  background: #fff;\n  border: thin solid rgba(0, 0, 0, 0.2);\n  padding: 20px 20px 20px 20px;\n  width: 100%;\n  height: 350px;\n  max-width: 450px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column; }\n\n.form-container-signup {\n  height: auto; }\n\n.form__input, .form__submit {\n  padding: 10px;\n  width: 100%;\n  font-size: 20px; }\n\n.form__title {\n  font-weight: bold;\n  color: #101010;\n  margin-bottom: 1rem;\n  font-weight: 400; }\n\n.form__input {\n  background: #eee;\n  border: thin solid rgba(0, 0, 0, 0.1);\n  margin-bottom: 0.5rem; }\n\n.form__submit {\n  color: #fff;\n  background: steelblue;\n  border: none; }\n\n.form__span {\n  margin-top: 1rem;\n  margin-right: 1rem; }\n\n.form-container__a {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center; }\n\n.form__a {\n  text-decoration: none;\n  color: navy;\n  margin-top: 1rem; }\n\n.alert {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  height: 2.5rem;\n  color: #fff;\n  padding: 10px;\n  border-radius: 4px;\n  font-weight: bold; }\n\n.alert__exit {\n  cursor: pointer; }\n\n.alert--warning {\n  background-color: orange; }\n\n.alert--danger {\n  background-color: #e84b3a; }\n\n.alert--success {\n  background-color: seagreen; }\n\n.alert--info {\n  background-color: #3199dc; }\n\n* {\n  margin: 0;\n  padding: 0;\n  font-family: sans-serif;\n  box-sizing: border-box; }\n\nbody {\n  background: #eee;\n  overflow-x: hidden; }\n\n.text-center {\n  text-align: center; }\n\n.header {\n  background: #3d4761;\n  color: #fff;\n  text-align: center;\n  height: 5rem;\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n\n.container {\n  width: 95%;\n  margin-left: auto;\n  margin-right: auto;\n  margin-top: 1rem; }\n\n.container-login {\n  margin-top: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: calc(100vh - 5rem); }\n\n.header__title {\n  font-size: 30px;\n  text-transform: uppercase; }\n\n.title {\n  font-weight: lighter; }\n", ""]);
+exports.push([module.i, ".form-container, .form__input, .form__submit {\n  border-radius: 3px; }\n\n.form-container {\n  background: #fff;\n  border: thin solid rgba(0, 0, 0, 0.2);\n  padding: 20px 20px 20px 20px;\n  width: 100%;\n  height: 350px;\n  max-width: 450px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column; }\n\n.form-container-signup {\n  height: auto;\n  margin-left: auto;\n  margin-right: auto; }\n\n.form__input, .form__submit {\n  padding: 10px;\n  width: 100%;\n  font-size: 20px; }\n\n.form__title {\n  font-weight: bold;\n  color: #101010;\n  margin-bottom: 1rem;\n  font-weight: 400; }\n\n.form__input {\n  background: #eee;\n  border: thin solid rgba(0, 0, 0, 0.1);\n  margin-bottom: 0.5rem; }\n\n.form__submit {\n  color: #fff;\n  background: steelblue;\n  border: none; }\n\n.form__span {\n  margin-top: 1rem;\n  margin-right: 1rem; }\n\n.form-container__a {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center; }\n\n.form__a {\n  text-decoration: none;\n  color: navy;\n  margin-top: 1rem; }\n\n.alert-container {\n  display: flex;\n  margin-bottom: 0.5rem; }\n\n.center {\n  justify-content: center; }\n\n.alert {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  height: 2.5rem;\n  color: #fff;\n  padding: 10px;\n  border-radius: 4px;\n  font-weight: bold;\n  width: 300px;\n  max-width: 300px; }\n\n#alert__exit {\n  cursor: pointer; }\n\n.alert--warning {\n  background-color: #FFCE54; }\n\n.alert--danger {\n  background-color: #ED5565; }\n\n.alert--success {\n  background-color: #37BC9B; }\n\n.alert--info {\n  background-color: #3199dc; }\n\n.alert--warning, .alert--danger, .alert--info, .alert--success {\n  animation: show 1.3s; }\n\n.showAnimation {\n  animation: show 1.3s; }\n\n.outAnimation {\n  animation: out 1.3s; }\n\n@keyframes out {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes show {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n* {\n  margin: 0;\n  padding: 0;\n  font-family: sans-serif;\n  box-sizing: border-box; }\n\nimg {\n  display: block; }\n\nbody {\n  background: #eee;\n  overflow-x: hidden; }\n\n.text-center {\n  text-align: center; }\n\n.header {\n  background: #3d4761;\n  color: #fff;\n  text-align: center;\n  height: 4em;\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n\n.container {\n  width: 95%;\n  margin-left: auto;\n  margin-right: auto;\n  margin-top: 1rem; }\n\n.container-login {\n  margin-top: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: calc(100vh - 5rem); }\n\n.header__title {\n  font-size: 30px;\n  text-transform: uppercase; }\n\n.title {\n  font-weight: lighter; }\n", ""]);
 
 // exports
 
@@ -653,6 +656,30 @@ module.exports = function (css) {
 	// send back the fixed css
 	return fixedCss;
 };
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+let alerts=document.getElementsByClassName('alert');
+
+for (var i = 0; i < alerts.length; i++) {
+  let alert_exit=document.createElement('div');
+  alert_exit.id='alert__exit';
+  alert_exit.innerHTML="&times";
+  alerts[i].appendChild(alert_exit);
+  alert_exit.addEventListener('click',function(){
+    let parent=this.parentNode.parentNode,
+    parentAlert=this.parentNode;
+    parentAlert.className+=parentAlert.className+" outAnimation"
+    let interval=setInterval(function(){
+      console.log("HUNC");
+      parent.removeChild(parentAlert);
+      clearInterval(interval);
+    },500);
+  });
+}
 
 
 /***/ })

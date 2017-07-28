@@ -4,5 +4,11 @@ block content
   include partials/header.pug
   main.container
     -if(user)
-      h1.title Welcome #{user.first_name} !
+      img(src=""+user.photo)
+      h1.title Welcome #{user.displayName} !
+      p #{user.email}
       a(href="/logout") Logout
+    
+    //- form(action="/picture/upload" method="POST" enctype="multipart/form-data")
+    //-   input(type="file" name="image")
+    //-   input(type="submit")

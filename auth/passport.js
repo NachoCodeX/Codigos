@@ -23,28 +23,40 @@ module.exports=app=>{
   }
 
   passport.use('signup',new LocalStrategy(localConfig,(req,email,password,done)=>{
+      req.checkBody('displayName','Name is a required field').notEmpty();
+      req.checkBody('email',' Email is a required field').notEmpty();
+      req.checkBody('password',' Email is a required field').notEmpty();
+      req.checkBody('password2',' Email is a required field').notEmpty();
+
+      req.getValidationResult().then(function (result) {
+          let isEmpty=result.isEmpty();
+          if(req.body.password2 === req.body.password && isEmpty){
+            User.findOne({'email':email},(err,user)=>{
+              if(err){return done(err);}
+              if(user){return done(null,false,req.flash('message-signup',"User already exists"))}
+              else{
+                let newUser=new User({
+                  email:email,
+                  password:password,
+                  displayName:req.body.displayName,
+                });
+                newUser.save(err=>{
+                  console.log("User Registration");
+                  return done(null,newUser);
+                });
+              }
+            });
+        }
+        else if(!isEmpty) return done(null,false,req.flash('message-signup',"Please fill out all fields"));
+        else{
+          done(null,false,req.flash('message-signup','Password don\'t match'))
+        }
+
+      });
+
 
       // function findOrCreateUser() {
-        if(req.body.password2 === req.body.password){
-          User.findOne({'email':email},(err,user)=>{
-            if(err){return done(err);}
-            if(user){return done(null,false,req.flash('message-signup',"User already exists"))}
-            else{
-              let newUser=new User({
-                email:email,
-                password:password,
-                first_name:req.body.first_name,
-                last_name:req.body.last_name,
-              });
-              newUser.save(err=>{
-                console.log("User Registration");
-                return done(null,newUser);
-              });
-            }
-          });
-      }else{
-        done(null,false,req.flash('message-signup','Password not match'))
-      }
+
       // };
 
     // process.nextTick(findOrCreateUser);
@@ -63,6 +75,10 @@ module.exports=app=>{
 
     });
   }));
+
+  //FACEBOOK
+  require('./auth-facebook')(passport,User);
+
 
   return passport;
 }

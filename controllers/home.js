@@ -4,15 +4,26 @@ let getLogin=(req,res)=>{
 
 
 let getHome=function(req,res){
-  res.render('home',{title:"home",user:req.user,message:req.flash('message-login')});
+  let message=req.flash('message-login');
+  res.render('home',{title:"home",user:req.user,message:message});
 }
 
 let getSignUp = (req,res)=>{
-  res.render('signup',{title:'signup',message:req.flash('message-signup')});
+  let message=req.flash('message-signup');
+  console.log(`${message.includes("User")}`);
+  res.render('signup',{title:'signup',message:message});
+}
+
+let uploadImage=(req,res)=>{
+  res.send(req.file);
+  console.log(req.files);
+  console.log(req.file);
+  // console.log(req.files);
 }
 
 module.exports={
   getHome,
+  uploadImage,
   getLogin,
   getSignUp
 }

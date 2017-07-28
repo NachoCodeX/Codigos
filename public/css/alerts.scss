@@ -1,3 +1,12 @@
+.alert-container{
+  // background: #000;
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+.center{
+  justify-content: center;
+}
+
 .alert{
   display: flex;
   justify-content: space-between;
@@ -8,10 +17,31 @@
   padding: 10px;
   border-radius: 4px;
   font-weight: bold;
+  width: 300px;
+  max-width: 300px
 }
-.alert__exit{cursor: pointer;}
+#alert__exit{cursor: pointer;}
 
-.alert--warning{background-color: orange;}
-.alert--danger{background-color: #e84b3a;}
-.alert--success{background-color:seagreen;}
+.alert--warning{background-color: #FFCE54;}
+.alert--danger{background-color: #ED5565;}
+.alert--success{background-color:#37BC9B;}
 .alert--info{background-color: #3199dc;}
+
+.alert--warning,.alert--danger,.alert--info,.alert--success{
+  animation: show 1.3s;
+}
+
+.showAnimation{animation: show 1.3s;}
+.outAnimation{animation: out 1.3s;}
+
+
+// ANIMATIONS
+
+@keyframes out {
+  0%{opacity: 1;}
+  100%{opacity: 0;}
+}
+@keyframes show {
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
